@@ -1,6 +1,6 @@
 <?php
 
-namespace Javaabu\StatusEvents\Tests\Feature;
+namespace Javaabu\StatusEvents\Tests\Unit;
 
 use Javaabu\StatusEvents\Tests\InteractsWithDatabase;
 use Javaabu\StatusEvents\Tests\TestCase;

@@ -2,6 +2,8 @@
 
 namespace Javaabu\StatusEvents\Tests;
 
+use Javaabu\Activitylog\ActivitylogServiceProvider;
+use Javaabu\Helpers\HelpersServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 use Javaabu\StatusEvents\StatusEventsServiceProvider;
 
@@ -20,6 +22,10 @@ abstract class TestCase extends BaseTestCase
 
     protected function getPackageProviders($app)
     {
-        return [StatusEventsServiceProvider::class];
+        return [
+            HelpersServiceProvider::class,
+            StatusEventsServiceProvider::class,
+            ActivitylogServiceProvider::class
+        ];
     }
 }
