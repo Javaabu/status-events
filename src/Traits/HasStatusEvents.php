@@ -29,7 +29,7 @@ trait HasStatusEvents
         return Attribute::get(fn () => $this->statusEvents()->orderBy('created_at', 'DESC')->first()?->remarks);
     }
 
-    public function createStatusEvent(string $status, string $remarks = null, ?TrackingSubject $user = null): StatusEvent
+    public function createStatusEvent(string $status, string $remarks = null, ?TrackingSubject $user = null)
     {
         $user ??= auth()->user();
 
