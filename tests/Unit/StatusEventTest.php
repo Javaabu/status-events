@@ -8,6 +8,7 @@ use Javaabu\StatusEvents\Tests\InteractsWithDatabase;
 use Javaabu\StatusEvents\Tests\Models\Application;
 use Javaabu\StatusEvents\Tests\Models\User;
 use Javaabu\StatusEvents\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class StatusEventTest extends TestCase
 {
@@ -20,7 +21,7 @@ class StatusEventTest extends TestCase
         $this->runMigrations();
     }
 
-    /** @test */
+    #[Test]
     public function it_can_create_status_event_from_input(): void
     {
         $user = User::create([
@@ -56,7 +57,7 @@ class StatusEventTest extends TestCase
         $this->assertNull($statusEvent->user_type);
     }
 
-    /** @test */
+    #[Test]
     public function it_has_trackable_relationship(): void
     {
         $user = User::create([
@@ -80,7 +81,7 @@ class StatusEventTest extends TestCase
         $this->assertEquals($application->id, $statusEvent->trackable->id);
     }
 
-    /** @test */
+    #[Test]
     public function it_has_user_relationship(): void
     {
         $user = User::create([
@@ -104,7 +105,7 @@ class StatusEventTest extends TestCase
         $this->assertEquals($user->id, $statusEvent->user->id);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_get_status_class(): void
     {
         $application = Application::create([
@@ -121,7 +122,7 @@ class StatusEventTest extends TestCase
         $this->assertEquals(ApplicationStatuses::class, $statusEvent->getStatusClass());
     }
 
-    /** @test */
+    #[Test]
     public function it_casts_event_at_to_datetime(): void
     {
         $application = Application::create([
@@ -138,7 +139,7 @@ class StatusEventTest extends TestCase
         $this->assertInstanceOf(\Carbon\Carbon::class, $statusEvent->event_at);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_be_created_with_custom_event_at(): void
     {
         $customDate = now()->subDays(1);

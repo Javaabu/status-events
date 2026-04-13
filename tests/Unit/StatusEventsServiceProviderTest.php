@@ -6,10 +6,11 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Artisan;
 use Javaabu\StatusEvents\StatusEvents;
 use Javaabu\StatusEvents\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class StatusEventsServiceProviderTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_publishes_migrations(): void
     {
         $migrationPath = database_path('migrations');
@@ -25,7 +26,7 @@ class StatusEventsServiceProviderTest extends TestCase
         File::deleteDirectory($migrationPath);
     }
 
-    /** @test */
+    #[Test]
     public function it_publishes_config(): void
     {
         $configPath = $this->app->basePath('config/status-events.php');
@@ -41,13 +42,13 @@ class StatusEventsServiceProviderTest extends TestCase
         File::delete($configPath);
     }
 
-    /** @test */
+    #[Test]
     public function it_registers_migrations_by_default(): void
     {
         $this->assertTrue(StatusEvents::$runsMigrations);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_ignore_migrations(): void
     {
         StatusEvents::ignoreMigrations();
@@ -55,7 +56,7 @@ class StatusEventsServiceProviderTest extends TestCase
         $this->assertFalse(StatusEvents::$runsMigrations);
     }
 
-    /** @test */
+    #[Test]
     public function it_merges_config(): void
     {
         $this->assertIsArray(config('status-events'));

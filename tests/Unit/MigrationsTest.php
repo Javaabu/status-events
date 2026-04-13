@@ -4,6 +4,7 @@ namespace Javaabu\StatusEvents\Tests\Unit;
 
 use Javaabu\StatusEvents\Tests\InteractsWithDatabase;
 use Javaabu\StatusEvents\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Schema;
 
 class MigrationsTest extends TestCase
@@ -17,7 +18,7 @@ class MigrationsTest extends TestCase
         $this->runMigrations();
     }
 
-    /** @test */
+    #[Test]
     public function it_migrates_the_table_during_tests(): void
     {
         $this->assertTrue(Schema::hasTable('status_events'));

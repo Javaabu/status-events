@@ -10,6 +10,7 @@ use Javaabu\StatusEvents\Tests\InteractsWithDatabase;
 use Javaabu\StatusEvents\Tests\Models\Application;
 use Javaabu\StatusEvents\Tests\Models\User;
 use Javaabu\StatusEvents\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class CreatesStatusEventsTest extends TestCase
 {
@@ -22,7 +23,7 @@ class CreatesStatusEventsTest extends TestCase
         $this->runMigrations();
     }
 
-    /** @test */
+    #[Test]
     public function it_can_create_a_simple_status_event(): void
     {
         $user = User::create([
@@ -66,7 +67,7 @@ class CreatesStatusEventsTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_creates_status_event_without_user(): void
     {
         $application = Application::create([
@@ -91,7 +92,7 @@ class CreatesStatusEventsTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_dispatches_status_event_created_event(): void
     {
         Event::fake();
@@ -118,7 +119,7 @@ class CreatesStatusEventsTest extends TestCase
         });
     }
 
-    /** @test */
+    #[Test]
     public function it_can_retrieve_status_events(): void
     {
         $user = User::create([
@@ -148,7 +149,7 @@ class CreatesStatusEventsTest extends TestCase
         $this->assertEquals('complete', $application->statusEvents->last()->status);
     }
 
-    /** @test */
+    #[Test]
     public function it_deletes_status_events_when_model_is_deleted(): void
     {
         $user = User::create([
@@ -177,7 +178,7 @@ class CreatesStatusEventsTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_get_latest_remarks(): void
     {
         $user = User::create([
@@ -210,7 +211,7 @@ class CreatesStatusEventsTest extends TestCase
         $this->assertEquals('Latest remarks', $application->latestRemarks);
     }
 
-    /** @test */
+    #[Test]
     public function it_returns_null_for_latest_remarks_when_no_events_exist(): void
     {
         $application = Application::create([
