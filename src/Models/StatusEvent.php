@@ -64,6 +64,6 @@ class StatusEvent extends Model
     public function getStatusClass()
     {
         $trackable_class = Model::getActualClassNameForMorph($this->trackable_type);
-        return $trackable_class::$status_class;
+        return property_exists($trackable_class, 'status_class') ? $trackable_class::$status_class : null;
     }
 }

@@ -21,6 +21,8 @@ class Application extends Model implements Trackable
         'status' => ApplicationStatuses::class
     ];
 
+    public static $status_class = ApplicationStatuses::class;
+
     public function getStatusColors(): array
     {
         return ApplicationStatuses::colors();

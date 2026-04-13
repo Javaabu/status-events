@@ -22,7 +22,7 @@ class StatusEventsServiceProvider extends ServiceProvider
         ], 'status-events-migrations');
 
         $this->publishes([
-            __DIR__ . '/../config/permission.php' => config_path('permission.php'),
+            __DIR__ . '/../config/config.php' => config_path('status-events.php'),
         ], 'status-events-config');
     }
 
