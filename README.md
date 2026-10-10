@@ -10,7 +10,7 @@ Status tracking system for Models
 
 ## Documentation
 
-You'll find the documentation on [https://docs.javaabu.com/docs/status-events](https://docs.javaabu.com/docs/status-events).
+You'll find the documentation on [https://docs.javaabu.com/status-events](https://docs.javaabu.com/status-events).
 
 Find yourself stuck using the package? Found a bug? Do you have general questions or suggestions for improving this package? Feel free to create an [issue](../../issues) on GitHub, we'll try to address it as soon as possible.
 
